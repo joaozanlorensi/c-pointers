@@ -9,7 +9,7 @@ Then, on terminal, type
 to compile and run.
 
 ## pointers_and_structs.c
-Follow the steps on main function and in the end you'll build a circular list.
+Follow the steps on main function and in the end you'll build a simple circular list.
 On terminal, type:
 
     "gcc pointers_and_structs.c -o pointers_and_structs && pointers_and_structs"
