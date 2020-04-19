@@ -78,7 +78,7 @@ int main()
     //
 
     // Step 5: removing an element:
-    remove_queue_element(&first_element, &queue);
+    remove_queue_element(&first_element, &queue); // Now we use pointer to pointer because we want to modify a pointer's value by reference
     print_queue(queue);
 
     return 0;
