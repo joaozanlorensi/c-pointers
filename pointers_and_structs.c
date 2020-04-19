@@ -78,6 +78,8 @@ int main()
     //
 
     // Step 5: removing an element:
+    remove_queue_element(&first_element, &queue);
+    print_queue(queue);
 
     return 0;
 }
@@ -111,5 +113,10 @@ void print_queue(custom_t *my_queue){
 }
 
 void remove_queue_element(custom_t *element, custom_t **my_queue){
-    
+    while((*my_queue)->next != element){
+        (*my_queue) = (*my_queue)->next;
+    }
+    (*my_queue)->next = element->next;
+
+    return;
 }
