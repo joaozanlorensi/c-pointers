@@ -6,11 +6,11 @@ typedef struct custom_t{
     struct custom_t *next;
 } custom_t;
 void make_second_next_equal_to_first(custom_t *first_element);
-void append(custom_t *element, custom_t* my_queue);
-void print_queue(custom_t* my_queue);
-void remove_queue_element(custom_t *element, custom_t **my_queue);
+void append(custom_t *element, custom_t* my_list);
+void print_list(custom_t* my_list);
+void remove_list_element(custom_t *element, custom_t **my_list);
 
-// Following the steps you will build a circular queue
+// Following the steps you will build a circular list
 int main()
 {
     // Step 1: working with custom_t in main and creating a reference between each element
@@ -55,12 +55,12 @@ int main()
 
     third_element.data = 95;
     
-    // Here we get to the queue concept!
-    custom_t* queue;
+    // Here we get to the list concept!
+    custom_t* list;
 
-    queue = &first_element;
+    list = &first_element;
 
-    append(&third_element, queue);
+    append(&third_element, list);
 
     printf("First element address: %p\nFirst element's next: %p\nSecond element's address: %p\nSecond element's next:   %p\nThird element address: %p\nThird element's next: %p\n", 
     &first_element, (first_element.next), &second_element, second_element.next, &third_element, third_element.next);
@@ -69,17 +69,17 @@ int main()
     printf("\n\n\n\n");
     //
 
-    // Step 4: printing my queue:
+    // Step 4: printing my list:
     
-    print_queue(queue);
+    print_list(list);
 
     //
     printf("\n\n\n\n");
     //
 
     // Step 5: removing an element:
-    remove_queue_element(&first_element, &queue); // Now we use pointer to pointer because we want to modify a pointer's value by reference
-    print_queue(queue);
+    remove_list_element(&first_element, &list); // Now we use pointer to pointer because we want to modify a pointer's value by reference
+    print_list(list);
 
     return 0;
 }
@@ -89,9 +89,9 @@ void make_second_next_equal_to_first(custom_t *first_element){
     return;
 }
 
-void append(custom_t *element, custom_t *my_queue){
-    custom_t *aux = my_queue;
-    custom_t *first = my_queue;
+void append(custom_t *element, custom_t *my_list){
+    custom_t *aux = my_list;
+    custom_t *first = my_list;
     while(aux->next != first){
         aux = aux->next;
     }
@@ -100,23 +100,23 @@ void append(custom_t *element, custom_t *my_queue){
     return;
 }
 
-void print_queue(custom_t *my_queue){
-    custom_t *first = my_queue;
+void print_list(custom_t *my_list){
+    custom_t *first = my_list;
 
     int counter = 1;
     do{
-        printf("Element %d's data: %d\n", counter, my_queue->data);
-        my_queue = my_queue->next;
+        printf("Element %d's data: %d\n", counter, my_list->data);
+        my_list = my_list->next;
         counter++;
-    }while(my_queue != first);
+    }while(my_list != first);
     return;
 }
 
-void remove_queue_element(custom_t *element, custom_t **my_queue){
-    while((*my_queue)->next != element){
-        (*my_queue) = (*my_queue)->next;
+void remove_list_element(custom_t *element, custom_t **my_list){
+    while((*my_list)->next != element){
+        (*my_list) = (*my_list)->next;
     }
-    (*my_queue)->next = element->next;
+    (*my_list)->next = element->next;
 
     return;
 }
