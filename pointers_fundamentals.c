@@ -20,7 +20,7 @@ void apply_func_to_array(float *array, int array_lenght, void (*function)(float 
 int main()
 {
     // pointers to pointers:
-        // pointer_to_pointer();
+        pointer_to_pointer();
 
     // pointers arithmetics:
         // pointer_arithmetics();
@@ -33,7 +33,7 @@ int main()
         // change_variable_value_using_pointer(&variable, addend);
         // printf("value of variable after change:     %d\n", variable);
 
-    // Pass array by reference using pointer:
+    // pass array by reference using pointer:
         // int array[] = {5, 10, 30, 120};
         // int array_len = sizeof(array)/sizeof(*array);
         // pass_array_by_reference_using_pointer(array, array_len); // this function changes the value of the last element in the array to 0
